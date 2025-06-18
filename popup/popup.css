@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>DivVisualizer</h1>
+    <div class="mode-selector">
+      <button id="toggle-hover-mode" class="mode-button">Hover Mode</button>
+      <button id="toggle-outline-mode" class="mode-button">Outline All</button>
+      <button id="disable-visualizer" class="mode-button danger">Disable</button>
+    </div>
+    <div class="settings">
+      <h2>Settings</h2>
+      <div class="setting">
+        <label for="show-dimensions">Show dimensions</label>
+        <input type="checkbox" id="show-dimensions" checked>
+      </div>
+      <div class="setting">
+        <label for="show-borders">Show borders</label>
+        <input type="checkbox" id="show-borders" checked>
+      </div>
+      <div class="setting">
+        <label for="outline-depth">Max nesting depth:</label>
+        <input type="range" id="outline-depth" min="1" max="20" value="10">
+        <span id="depth-value">10</span>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
+
+// popup/popup.css
+body {
+  width: 300px;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  padding: 10px;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #0060df;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #0a84ff;
+}
+
+.mode-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.mode-button {
+  flex: 1 1 auto;
+  background-color: #e0e0e0;
+  color: #333;
+  min-width: 80px;
+}
+
+.mode-button.active {
+  background-color: #0060df;
+  color: white;
+}
+
+.mode-button.danger {
+  background-color: #e0e0e0;
+  color: #d70022;
+  border: 1px solid #d70022;
+}
+
+.mode-button.danger:hover, .mode-button.danger.active {
+  background-color: #d70022;
+  color: white;
+}
+
+.settings {
+  margin-top: 10px;
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.setting input[type="range"] {
+  width: 50%;
+}
+
+#depth-value {
+  width: 20px;
+  text-align: center;
+}
